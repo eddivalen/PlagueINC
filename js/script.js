@@ -1,22 +1,27 @@
 var band = true;
 $(function(){
-	
-    $('#world-map').vectorMap({
-      	map: 've_mill',
+    var map,
+	map = new jvm.Map({
+        container: $('#world-map'),
+        map: 've_mill',
+    
       	onRegionClick: function(event, code) {
-        	
+            if(band == false){
+                event.preventDefault();
+            }
     	},
     	onRegionSelected: function(event, code, isSelected, selectedRegions) {
     		if(isSelected){
-    			console.log(code);
-    			band = false;
+                global.origen = map.getRegionName(code);
+                band=false;
     		} 	
     	},
-    	regionsSelectable: band,
+        regionsSelectable: true,
+        regionsSelectableOne: true,
     	regionStyle:{
     		selected:{
     			fill:'red'
     		}
     	}
-  	});
+    });
 });
