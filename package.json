@@ -1,0 +1,18 @@
+{
+  "name": "Plague INC",
+  "single-instance": false,
+  "main": "/html/index.html",
+  "window": {
+    "width": 1000,
+    "height": 800,
+    "toolbar": true
+  },
+  "dependencies": {
+    "material-design-icons": "^2.2.3",
+    "jquery": "^2.2.2"
+  },
+  "version": "0.0.1",
+  "description": "Plague",
+  "repository": {},
+  "author": "Plague"
+}
