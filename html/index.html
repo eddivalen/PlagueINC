@@ -28,9 +28,14 @@
         <div class="row center">
           <h5 class="header col s12 light" style="center">Nombre del virus</h5>
           <div class="col s4 offset-s4">
-            <input type="text" id="virus" placeholder="virus">
+            <input type="text" id="nombre_virus" placeholder="virus" required autofocus class="validate">
           </div>
         </div>
+        <div class="row center">
+            <button id="jugar" class="btn waves-effect waves-light red center" type="submit" name="action">Jugar
+              <i class="material-icons right">send</i>
+            </button>
+            </div>  
       </form>
     </div>
   </div>
@@ -38,13 +43,6 @@
   <div class="container">
     <div class="section">
     
-      <div class="row">
-        <div class="col s12 m12">
-          <div class="icon-block">
-            <a href="game.html"><h2 class="center red-text"><i class="material-icons">flash_on</i></h2></a>
-            <a href="game.html"><h5 class="center red-text">Jugar</h5>
-          </div>
-        </div>
 
 
       </div>
@@ -56,7 +54,9 @@
 
   </footer>-->
   <!--  Scripts-->
+  <script src="../js/vendor/jquery-2.1.1.min.js"></script>
   <script src="../js/vendor/materialize.js"></script>
+  <script src="../js/init.js"></script>
   <script>
         var gui = require('nw.gui');
      </script>

@@ -13,6 +13,7 @@ $(function(){
     	onRegionSelected: function(event, code, isSelected, selectedRegions) {
     		if(isSelected){
                 global.origen = map.getRegionName(code);
+                console.log(global.origen);
                 band=false;
     		} 	
     	},
