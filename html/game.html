@@ -4,10 +4,9 @@
   <title>jVectorMap demo</title>
    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="../css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
-  
+   <link rel="stylesheet" href="../css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
   <script src="../js/vendor/jquery-2.1.1.min.js"></script>
-  <script src="../js/script.js"></script>
+  <script src="../js/vendor/underscorejs.min.js"></script>
   <script src="../js/vendor/jquery-jvectormap-2.0.3.min.js"></script>
   <script src="../js/vendor/jquery-jvectormap-ve-mill.js"></script>
 </head>
@@ -21,7 +20,7 @@
 		</div>
 	  </div>
 	  <div class="col s12 m5 vertical-scroll">
-	  <div class="row" style="border-bottom: 2px solid rgba(0,0,0,0.2);">
+	  <div class="row ttabla">
 		  	 <div class="col s3">
 	          <h6>Estados</h6>
 	        </div>
@@ -34,6 +33,9 @@
 	         <div class="col s3">
 	          <h6>Muertes</h6>
 	        </div>
+        </div>
+        <div id="table">
+        	
         </div>
 	  </div>
 	</div>
@@ -50,9 +52,23 @@
 	
 	</div>
 	
-  <script>
-    
-  </script>
+     <script type="text/template" id="tabletemplate"> 
+	    <table> 
+	      <tbody>
+	        <% _.each(estados, function(estado, key, list) { %> 
+	              <tr> 
+	                  <td> <%= estado.nombre %></td>
+	                  <td> <%= estado.poblacion %></td>
+	                  <td class="c"> <%= estado.contagiados %></td>
+	                  <td class="c"> <%= estado.muertes %></td>
+	              </tr>
+	        <% });%>
+	    </tbody > 
+	   </table>
+    </script>
 
+
+  <script src="../js/script.js"></script>
+  
 </body>
 </html>

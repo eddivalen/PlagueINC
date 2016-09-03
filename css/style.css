@@ -41,3 +41,19 @@
 	text-align: center;
 	line-height: 20px;
 }
+table {
+    font-size: 15px;
+    width:20%;
+    border-spacing: 1px;
+    border-collapse: separate;
+}
+th, td {
+    padding:3px;
+}
+.ttabla{
+	border-bottom: 2px solid rgba(0,0,0,0.2);
+	margin-bottom: 0px;
+}
+.c{
+	padding-left:68px; 
+}

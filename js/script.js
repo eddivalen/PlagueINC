@@ -1,4 +1,7 @@
 var band = true;
+var template = tabletemplate.innerHTML;
+table.innerHTML = _.template(template,{estados:global.info.estados});
+
 $(function(){
     var map,
 	map = new jvm.Map({
