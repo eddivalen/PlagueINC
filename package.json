@@ -3,9 +3,11 @@
   "single-instance": false,
   "main": "/html/index.html",
   "window": {
-    "width": 1000,
-    "height": 800,
-    "toolbar": true
+    "title":"Plague INC",
+    "width": 500,
+    "height": 410,
+    "toolbar": true,
+    "icon": "/images/logo.png"
   },
   "dependencies": {
     "material-design-icons": "^2.2.3",
@@ -13,6 +15,9 @@
   },
   "version": "0.0.1",
   "description": "Plague",
-  "repository": {},
-  "author": "Plague"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eddivalen/PlagueINC.git"
+  },
+  "author": "Leonard Mendoza, Raul Hernandez, Eddy Valencia"
 }

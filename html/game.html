@@ -35,7 +35,7 @@
 					</div>
 				</div>
 				<div class="col s3 vertical">
-					<button class="btn-floating btn-large waves-effect waves-light red center disabled">
+					<button id="bubble_red" class="btn-floating btn-large waves-effect waves-light red center disabled">
 						 <img src="../images/biohazard.png" alt="" class="circle responsive-img burbuja">
 					</button>
 					<div class="puntos">
@@ -44,7 +44,7 @@
 					
 				</div>
 				<div class="col s3 vertical">
-					<button class="btn-floating btn-large waves-effect waves-light orange center disabled">
+					<button id="bubble_orange" class="btn-floating btn-large waves-effect waves-light orange center disabled">
 						 <img src="../images/biohazard.png" alt="" class="circle responsive-img burbuja">
 					</button>
 					<div class="puntos">
@@ -52,7 +52,7 @@
 					</div>
 				</div>
 				<div class="col s3 vertical">
-					<button class="btn-floating btn-large waves-effect waves-light blue center disabled">
+					<button id="bubble_blue" class="btn-floating btn-large waves-effect waves-light blue center disabled">
 						 <img src="../images/biohazard.png" alt="" class="circle responsive-img burbuja">
 					</button>
 					<div class="puntos">
@@ -83,36 +83,46 @@
         </div>
 	  </div>
 	</div>
+
 	<div class="row" style="height:120px">
 		<div class="col s12 m4 grid-example">
+
 		<div class="row stat">
 			<div class="col s5">
 			Poblacion
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
-      			<div class="determinate" style="width: 70%"></div>
+      			<div id="pbporcentaje" class="determinate" style="width: 0%"></div>
   				</div>
+  				<div id="porce_poblacion"></div>
+  				<div id="pbtotal"></div>
 			</div>
 		</div>
+		
 		<div class="row stat">
 			<div class="col s5">
 			Contagiados
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
-      			<div class="determinate" style="width: 70%"></div>
+      			<div id="ctporcentaje" class="determinate" style="width: 0%;background-color: #FF0000"></div>
   				</div>
+  				<div id="porce_contagiados"></div>
+  				<div id="cttotal"></div>
 			</div>
 		</div>
+		
 		<div class="row stat">
 			<div class="col s5">
 			Muertes
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
-      			<div class="determinate" style="width: 70%"></div>
+      			<div id="mtporcentaje" class="determinate" style="width: 0%; background-color: #190707"></div>
   				</div>
+  				<div id="porce_muertes"></div>
+  				<div id="mttotal"></div>
 			</div>
 		</div>
 
