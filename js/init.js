@@ -43,3 +43,14 @@ $('#jugar').on('click',function( ev ){
         window.location.href = "../html/game.html";
     }
 });
+
+function get_poblacioninicial(){
+    var poblacioninicial=0;
+
+        for (var i = 0; i < global.info.estados.length; i++) {
+             poblacioninicial+=global.info.estados[i].poblacion;
+        }
+    return poblacioninicial;
+}
+
+global.info.poblacioninicial=get_poblacioninicial();

@@ -10,7 +10,7 @@ background: #fff;
  }
  .col.grid-example {
  	width: 100%;
- 	height: 126px;
+ 	/*height: 126px;*/
     border: 1px solid #eee;
     margin: 7px 0;
     text-align: center;

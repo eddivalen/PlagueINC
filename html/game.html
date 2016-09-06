@@ -83,36 +83,46 @@
         </div>
 	  </div>
 	</div>
+
 	<div class="row" style="height:120px">
 		<div class="col s12 m4 grid-example">
+
 		<div class="row stat">
 			<div class="col s5">
 			Poblacion
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
-      			<div class="determinate" style="width: 70%"></div>
+      			<div id="pbporcentaje" class="determinate" style="width: 0%"></div>
   				</div>
+  				<div id="porce_poblacion"></div>
+  				<div id="pbtotal"></div>
 			</div>
 		</div>
+		
 		<div class="row stat">
 			<div class="col s5">
 			Contagiados
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
-      			<div class="determinate" style="width: 70%"></div>
+      			<div id="ctporcentaje" class="determinate" style="width: 0%;background-color: #FF0000"></div>
   				</div>
+  				<div id="porce_contagiados"></div>
+  				<div id="cttotal"></div>
 			</div>
 		</div>
+		
 		<div class="row stat">
 			<div class="col s5">
 			Muertes
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
-      			<div class="determinate" style="width: 70%"></div>
+      			<div id="mtporcentaje" class="determinate" style="width: 0%; background-color: #190707"></div>
   				</div>
+  				<div id="porce_muertes"></div>
+  				<div id="mttotal"></div>
 			</div>
 		</div>
 
