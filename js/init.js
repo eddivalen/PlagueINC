@@ -54,5 +54,4 @@ function get_poblacioninicial(){
         }
     return poblacioninicial;
 }
-
 global.info.poblacioninicial=get_poblacioninicial();
