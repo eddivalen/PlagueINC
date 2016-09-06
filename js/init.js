@@ -25,7 +25,9 @@ if (typeof(global.info) === 'undefined') {
     {nombre:'Cojedes',poblacion:348022,contagiados:0,muertes:0, adyacentes:['Carabobo', 'Yaracuy', 'Cojedes','Guárico','Aragua'], infectado:0},
     {nombre:'Delta Amacuro',poblacion:187022,contagiados:0,muertes:0,adyacentes:['Bolívar','Monagas'], infectado:0},
     {nombre:'Amazonas',poblacion:178670,contagiados:0,muertes:0, adyacentes:['Bolívar'], infectado:0},
-    {nombre:'Nueva Esparta',poblacion:552011,contagiados:0,muertes:0,adyacentes:['Sucre', 'Anzoátegui'], infectado:0},
+    {nombre:'Nueva Esparta',poblacion:552011,contagiados:0,muertes:0,adyacentes:['Sucre', 'Anzoátegui'],infectado:0},
+
+ 
     ];
      
 }
