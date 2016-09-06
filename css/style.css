@@ -65,35 +65,3 @@ th, td {
 	height: 40px;
 	margin-bottom: 0px;
 }
-.clock{
-  justify-content: space-around;
-  line-height:40px;
-}
-.vertical{
-	line-height:80px;
-}
-.burbuja{
-	height: 40px;
-	width: 60px;
-	text-align: center;
-	line-height: 20px;
-}
-.puntos{
-	margin-top: -25px;
-}
-.puntosadn{
-	width: 150px;
-	text-align: center;
-	padding-right: 18px;
-	margin-top:-10px;
-}
-#adn{
-	margin-top: 0px;
-}
-.adn{
-	margin-bottom: -8px;
-}
-.dias{
-	margin-bottom:0px;
-	margin-top:10px;
-}
