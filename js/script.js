@@ -17,6 +17,7 @@ $(function(){
     		if(isSelected){
                 global.origen = map.getRegionName(code);
                 infectarEstado(code,'pink');
+                activarBoton_rojo();
                map.clearSelectedRegions();
                 console.log(global.origen);
                 band=false;
@@ -99,7 +100,7 @@ var activarBoton_naranja = function(){
       $('#bubble_orange').removeClass('disabled');
     $('#bubble_orange').on('click',function( ev ){
         ev.preventDefault();
-        value= 3;
+        var value= 3;
         global.info.puntos+= value;
         document.getElementById("adn").innerHTML = global.info.puntos;
          $('#bubble_orange').addClass('disabled');
@@ -629,8 +630,9 @@ function matarContagiados(){
 function generarADNRandom(){
     probabilidad_puntos = Math.random()*100;
         if(probabilidad_puntos < 10){
-            puntosADN++;
-            document.getElementById("adn").innerHTML = puntosADN;
+            global.info.puntos++;
+           // puntosADN++;
+            document.getElementById("adn").innerHTML = global.info.puntos;
         }
 }
 
@@ -682,6 +684,7 @@ function contagiarOtrosPaises(){
                         global.info.estados[j].contagiados++;
                         console.log(global.info.estados[j].nombre + 'Infectado');
                         infectarEstado(global.info.estados[j].code);
+                        activarBoton_rojo();
                     }    
                 }
             }
