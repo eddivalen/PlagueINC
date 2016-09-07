@@ -30,6 +30,7 @@ if (typeof(global.info) === 'undefined') {
  
     ];
     global.info.puntos=0;
+    global.info.colors = ['#ffcdd2','#e57373','#f44336','#d32f2f','#b71c1c'];
 }
 $('#jugar').on('click',function( ev ){
     ev.preventDefault();
@@ -40,12 +41,15 @@ $('#jugar').on('click',function( ev ){
         virus = element.val();
         global.info.virus = virus;
         console.log(global.info.virus);
+        cloneStates();
         window.location.href = "../html/game.html";
         window.resizeTo(1015,800);
         window.moveTo(150,150);
     }
 });
-
+function cloneStates(){
+    global.info.states = _.clone(global.info.estados);
+}
 function get_poblacioninicial(){
     var poblacioninicial=0;
 

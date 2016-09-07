@@ -33,8 +33,11 @@ $(function(){
             markers:[{
                  attribute: 'fill',
                 scale: {
-                    '30%': 'pink',
-                    '50%': 'red'
+                    '>0':  '#ffcdd2',
+                    '25%': '#e57373',
+                    '50%': '#f44336',
+                    '75%': '#d32f2f',
+                    '100%': '#b71c1c'
                 },
                 legend: {
                   vertical: true
@@ -49,14 +52,14 @@ $(function(){
         regionsSelectableOne: true,
     	regionStyle:{
     		selected:{
-    			fill:'pink'
+    			fill:'#ffcdd2'
     		}
     	}
     });
 });
 var colorInicial = function(key){
              var colors = {};
-            colors[key] = 'pink';
+            colors[key] = '#ffcdd2';
              return colors;
         };
 var infectarEstado = function(code){
@@ -596,7 +599,7 @@ function updateGame(){
         matarContagiados();
         aumentarInfeccion();    //aumenta la infeccion en paises ya infectados, corroe la poblacion san
         contagiarOtrosPaises();  //recorre cada pais infectado e intenta contagiar un vecino sano
-
+        actualizarColores();
         }
 
     }
@@ -678,9 +681,26 @@ function contagiarOtrosPaises(){
                         global.info.estados[j].cont_r++;
                         global.info.estados[j].contagiados++;
                         console.log(global.info.estados[j].nombre + 'Infectado');
+                        infectarEstado(global.info.estados[j].code);
                     }    
                 }
             }
+        }
+    }
+}
+function actualizarColores(){
+    for(i = 0; i < global.info.estados.length; i++){
+        if(global.info.estados[i].contagiados >= global.info.states[i].poblacion*0.25){
+            changeColor(global.info.estados[i].code,global.info.colors[1]);
+        }
+        if(global.info.estados[i].contagiados >= global.info.states[i].poblacion*0.50){
+            changeColor(global.info.estados[i].code,global.info.colors[2]);
+        }
+        if(global.info.estados[i].contagiados >= global.info.states[i].poblacion*0.75){
+            changeColor(global.info.estados[i].code,global.info.colors[3]);
+        }
+        if(global.info.estados[i].contagiados >= global.info.states[i].poblacion){
+            changeColor(global.info.estados[i].code,global.info.colors[4]);
         }
     }
 }
