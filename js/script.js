@@ -551,3 +551,137 @@ if(global.info.medicamento2==1){
 
 global.info.porc_cura="100%";
 porce_cura.innerHTML = global.info.porc_cura;
+
+
+
+//-------SET INTERVAL---------
+
+
+global.info.dias = 0;
+
+var iniciado = 0;
+var poblacion_total_incial = 0;
+var i = 0;
+var probabilidad_puntos;
+var puntosADN = 0;
+var j = 0;
+var k = 0;
+
+var tasa_base_contagio = 0.05;
+var tasa_base_muerte = 0.001;
+
+function updateGame(){
+    
+    if(global.origen != undefined){ //no incia si no han elegido un estado
+        
+        if(iniciado == 0){          //setup inicial
+            iniciado = 1;
+            for(i = 0; i < global.info.estados.length; i++){
+                if(global.info.estados[i].nombre === global.origen){
+                
+                puntosADN += 1;
+                global.info.estados[i].infectado = 1;
+                global.info.estados[i].cont_r++;
+                global.info.estados[i].contagiados++;
+                
+                
+                }
+            }
+        }
+        else{                    
+                                //bucle principal del juego
+        actualizarTiempo();              // avance de días
+        generarADNRandom();     //intenta generar un punto para este día;
+        matarContagiados();
+        aumentarInfeccion();    //aumenta la infeccion en paises ya infectados, corroe la poblacion san
+        contagiarOtrosPaises();  //recorre cada pais infectado e intenta contagiar un vecino sano
+
+        }
+
+    }
+}
+
+function matarContagiados(){
+    for(i = 0; i < global.info.estados.length; i++){
+
+        if(global.info.estados[i].infectado === 1 && global.info.estados[i].contagiados > 0){
+        muertos = Math.random() * tasa_base_muerte * global.info.estados[i].contagiados;
+        
+        if(tasa_base_muerte > 0 && muertos < 1){
+            rand = 100 * Math.random();
+            
+            if(rand <= tasa_base_muerte*100){
+                muertos = 1;
+            }
+
+        }
+        
+        global.info.estados[i].contagiados -= Math.floor(muertos);
+        global.info.estados[i].muertes += Math.floor(muertos);
+    }
+    }
+}
+
+function generarADNRandom(){
+    probabilidad_puntos = Math.random()*100;
+        if(probabilidad_puntos < 10){
+            puntosADN++;
+            document.getElementById("adn").innerHTML = puntosADN;
+        }
+}
+
+function actualizarTiempo(){
+    global.info.dias++;
+    document.getElementById("dias").innerHTML = global.info.dias;
+}
+
+function aumentarInfeccion(){
+    for(i = 0; i < global.info.estados.length; i++){
+
+        if(global.info.estados[i].infectado === 1 && global.info.estados[i].poblacion > 0 && global.info.estados[i].contagiados > 0){
+
+            global.info.estados[i].cont_r += global.info.estados[i].contagiados * tasa_base_contagio;
+            contagiados_anterior = global.info.estados[i].contagiados;
+            
+            
+            diferencia =  Math.floor(global.info.estados[i].cont_r) - contagiados_anterior;
+            
+            if(diferencia < global.info.estados[i].poblacion){
+                global.info.estados[i].contagiados = Math.floor(global.info.estados[i].cont_r);
+            }else{
+                global.info.estados[i].contagiados += global.info.estados[i].poblacion - 1;
+            }
+
+            if(global.info.estados[i].poblacion - diferencia > 0){
+                global.info.estados[i].poblacion -= diferencia;
+            }else{
+                global.info.estados[i].poblacion = 0;
+            }
+        }
+    }
+
+    table.innerHTML = _.template(template,{estados:global.info.estados});    
+}
+
+function contagiarOtrosPaises(){
+    for(i = 0; i < global.info.estados.length; i++){
+        if(global.info.estados[i].infectado === 1 &&
+         (global.info.estados[i].contagiados /  
+         (global.info.estados[i].contagiados + global.info.estados[i].poblacion)) >= 0.00001){
+         
+            indice_afectado = Math.floor(Math.random() * global.info.estados[i].adyacentes.length);
+            for(j = 0; j < global.info.estados.length; j++){
+                    if(global.info.estados[j].nombre == global.info.estados[i].adyacentes[indice_afectado]){
+                        if(global.info.estados[j].infectado == 0){
+                        global.info.estados[j].infectado = 1;
+                        global.info.estados[j].cont_r++;
+                        global.info.estados[j].contagiados++;
+                        console.log(global.info.estados[j].nombre + 'Infectado');
+                    }    
+                }
+            }
+        }
+    }
+}
+
+setInterval(updateGame, 100);
