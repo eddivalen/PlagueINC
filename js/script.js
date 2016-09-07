@@ -558,9 +558,7 @@ porce_cura.innerHTML = global.info.porc_cura;
 
 
 global.info.dias = 0;
-
-var iniciado = 0;
-var poblacion_total_incial = 0;
+global.info.iniciado = 0;
 var i = 0;
 var probabilidad_puntos;
 var puntosADN = 0;
@@ -574,8 +572,8 @@ function updateGame(){
     
     if(global.origen != undefined){ //no incia si no han elegido un estado
         
-        if(iniciado == 0){          //setup inicial
-            iniciado = 1;
+        if(global.info.iniciado == 0){          //setup inicial
+            global.info.iniciado = 1;
             for(i = 0; i < global.info.estados.length; i++){
                 if(global.info.estados[i].nombre === global.origen){
                 
@@ -589,6 +587,9 @@ function updateGame(){
             }
         }
         else{                    
+            document.getElementById("pbtotal").innerHTML = get_poblaciontotal();
+            document.getElementById("cttotal").innerHTML = get_contagiadostotal();
+            document.getElementById("mttotal").innerHTML = get_muertestotal();
                                 //bucle principal del juego
         actualizarTiempo();              // avance de días
         generarADNRandom();     //intenta generar un punto para este día;
@@ -672,7 +673,7 @@ function contagiarOtrosPaises(){
             indice_afectado = Math.floor(Math.random() * global.info.estados[i].adyacentes.length);
             for(j = 0; j < global.info.estados.length; j++){
                     if(global.info.estados[j].nombre == global.info.estados[i].adyacentes[indice_afectado]){
-                        if(global.info.estados[j].infectado == 0){
+                        if(global.info.estados[j].infectado == 0 || global.info.estados[j].contagiados == 0){
                         global.info.estados[j].infectado = 1;
                         global.info.estados[j].cont_r++;
                         global.info.estados[j].contagiados++;
