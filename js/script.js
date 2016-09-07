@@ -239,7 +239,7 @@ if(global.info.aire2==1){
 
 
 //agua1
-if(global.info.puntos>document.getElementById("agua1adn").innerHTML && global.info.agua1==0){
+if(global.info.puntos>=document.getElementById("agua1adn").innerHTML && global.info.agua1==0){
     document.getElementById("agua1").className = "circle responsive-img burbuja no-desaturada";
     document.getElementById("boton_agua1").disabled = false;
 }
@@ -258,7 +258,7 @@ if(global.info.agua1==1){
 }
 
 //agua2
-if(global.info.puntos>document.getElementById("agua2adn").innerHTML && global.info.agua2==0 && global.info.agua1==1){
+if(global.info.puntos>=document.getElementById("agua2adn").innerHTML && global.info.agua2==0 && global.info.agua1==1){
     document.getElementById("agua2").className = "circle responsive-img burbuja no-desaturada";
     document.getElementById("boton_agua2").disabled = false;
 }
@@ -277,7 +277,7 @@ if(global.info.agua2==1){
 }
 
 //animal1
-if(global.info.puntos>document.getElementById("animal1adn").innerHTML && global.info.animal1==0){
+if(global.info.puntos>=document.getElementById("animal1adn").innerHTML && global.info.animal1==0){
     document.getElementById("animal1").className = "circle responsive-img burbuja no-desaturada";
     document.getElementById("boton_animal1").disabled = false;
 }
@@ -295,7 +295,7 @@ if(global.info.animal1==1){
 }
 
 //animal2
-if(global.info.puntos>document.getElementById("animal2adn").innerHTML && global.info.animal2==0 && global.info.animal1==1){
+if(global.info.puntos>=document.getElementById("animal2adn").innerHTML && global.info.animal2==0 && global.info.animal1==1){
     document.getElementById("animal2").className = "circle responsive-img burbuja no-desaturada";
     document.getElementById("boton_animal2").disabled = false;
 }
@@ -312,9 +312,239 @@ if(global.info.animal2==1){
     document.getElementById("animal2").className = "circle responsive-img burbuja no-desaturada";
 }
 
+
 //Sintomas
 
+
+//tos
+if(global.info.puntos>=document.getElementById("tosadn").innerHTML && global.info.tos==0){
+    document.getElementById("tos").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_tos").disabled = false;
+    //document.getElementById('aire1').removeClass('desaturada');
+    }
+
+function adquirir_tos(){
+    console.log("click tos");
+    global.info.puntos -= document.getElementById("tosadn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.tos=1;
+    document.getElementById("boton_tos").disabled = true;
+}
+
+if(global.info.tos==1){
+    document.getElementById("tos").className = "circle responsive-img burbuja no-desaturada";
+}
+
+//neumonia
+if(global.info.puntos>=document.getElementById("neumoniaadn").innerHTML && global.info.tos==1 && global.info.neumonia==0){
+    document.getElementById("neumonia").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_neumonia").disabled = false;
+}
+
+function adquirir_neumonia(){
+    console.log("click neumonia");
+    global.info.puntos -= document.getElementById("neumoniaadn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.neumonia=1;
+    document.getElementById("boton_neumonia").disabled = true;
+}
+
+if(global.info.neumonia==1){
+    document.getElementById("neumonia").className = "circle responsive-img burbuja no-desaturada";
+}
+
+
+//diarrea
+if(global.info.puntos>=document.getElementById("diarreaadn").innerHTML && global.info.diarrea==0){
+    document.getElementById("diarrea").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_diarrea").disabled = false;
+}
+    
+function adquirir_diarrea(){
+    console.log("click diarrea");
+    global.info.puntos -= document.getElementById("diarreaadn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.diarrea=1;
+    document.getElementById("boton_diarrea").disabled = true;
+}
+
+
+if(global.info.diarrea==1){
+    document.getElementById("diarrea").className = "circle responsive-img burbuja no-desaturada";
+}
+
+//globulos
+if(global.info.puntos>=document.getElementById("globulosadn").innerHTML && global.info.globulos==0 && global.info.diarrea==1 && global.info.neumonia==1){
+    document.getElementById("globulos").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_globulos").disabled = false;
+}
+ 
+function adquirir_globulos(){
+    console.log("click globulos");
+    global.info.puntos -= document.getElementById("globulosadn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.globulos=1;
+    document.getElementById("boton_globulos").disabled = true;
+}
+
+
+if(global.info.globulos==1){
+    document.getElementById("globulos").className = "circle responsive-img burbuja no-desaturada";
+}
+
+//insomnio
+if(global.info.puntos>=document.getElementById("insomnioadn").innerHTML && global.info.insomnio==0){
+    document.getElementById("insomnio").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_insomnio").disabled = false;
+}
+
+function adquirir_insomnio(){
+    console.log("click insomnio");
+    global.info.puntos -= document.getElementById("insomnioadn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.insomnio=1;
+    document.getElementById("boton_insomnio").disabled = true;
+}
+
+if(global.info.insomnio==1){
+    document.getElementById("insomnio").className = "circle responsive-img burbuja no-desaturada";
+}
+
+//cerebro
+if(global.info.puntos>=document.getElementById("cerebroadn").innerHTML && global.info.cerebro==0 && global.info.insomnio==1 && global.info.globulos==1){
+    document.getElementById("cerebro").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_cerebro").disabled = false;
+}
+
+function adquirir_cerebro(){
+    console.log("click cerebro");
+    global.info.puntos -= document.getElementById("cerebroadn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.cerebro=1;
+    document.getElementById("boton_cerebro").disabled = true;
+}
+
+if(global.info.cerebro==1){
+    document.getElementById("cerebro").className = "circle responsive-img burbuja no-desaturada";
+}
+
+
+
 //Resistencia
+
+
+//frio1
+if(global.info.puntos>=document.getElementById("frio1adn").innerHTML && global.info.frio1==0){
+    document.getElementById("frio1").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_frio1").disabled = false;
+    //document.getElementById('aire1').removeClass('desaturada');
+    }
+
+function adquirir_frio1(){
+    console.log("click frio 1");
+    global.info.puntos -= document.getElementById("frio1adn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.frio1=1;
+    document.getElementById("boton_frio1").disabled = true;
+}
+
+if(global.info.frio1==1){
+    document.getElementById("frio1").className = "circle responsive-img burbuja no-desaturada";
+}
+
+//frio2
+if(global.info.puntos>=document.getElementById("frio2adn").innerHTML && global.info.frio1==1 && global.info.frio2==0){
+    document.getElementById("frio2").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_frio2").disabled = false;
+}
+
+function adquirir_frio2(){
+    console.log("click frio 2");
+    global.info.puntos -= document.getElementById("frio2adn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.frio2=1;
+    document.getElementById("boton_frio2").disabled = true;
+}
+
+if(global.info.frio2==1){
+    document.getElementById("frio2").className = "circle responsive-img burbuja no-desaturada";
+}
+
+
+
+//calor1
+if(global.info.puntos>=document.getElementById("calor1adn").innerHTML && global.info.calor1==0){
+    document.getElementById("calor1").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_calor1").disabled = false;
+}
+    
+function adquirir_calor1(){
+    console.log("click calor 1");
+    global.info.puntos -= document.getElementById("calor1adn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.calor1=1;
+    document.getElementById("boton_calor1").disabled = true;
+}
+
+
+if(global.info.calor1==1){
+    document.getElementById("calor1").className = "circle responsive-img burbuja no-desaturada";
+}
+
+//calor2
+if(global.info.puntos>=document.getElementById("calor2adn").innerHTML && global.info.calor2==0 && global.info.calor1==1){
+    document.getElementById("calor2").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_calor2").disabled = false;
+}
+ 
+function adquirir_calor2(){
+    console.log("click calor 2");
+    global.info.puntos -= document.getElementById("calor2adn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.calor2=1;
+    document.getElementById("boton_calor2").disabled = true;
+}
+
+
+if(global.info.calor2==1){
+    document.getElementById("calor2").className = "circle responsive-img burbuja no-desaturada";
+}
+
+//medicamento1
+if(global.info.puntos>=document.getElementById("medicamento1adn").innerHTML && global.info.medicamento1==0){
+    document.getElementById("medicamento1").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_medicamento1").disabled = false;
+}
+
+function adquirir_medicamento1(){
+    console.log("click medicamento 1");
+    global.info.puntos -= document.getElementById("medicamento1adn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.medicamento1=1;
+    document.getElementById("boton_medicamento1").disabled = true;
+}
+
+if(global.info.medicamento1==1){
+    document.getElementById("medicamento1").className = "circle responsive-img burbuja no-desaturada";
+}
+
+//medicamento2
+if(global.info.puntos>=document.getElementById("medicamento2adn").innerHTML && global.info.medicamento2==0 && global.info.medicamento1==1){
+    document.getElementById("medicamento2").className = "circle responsive-img burbuja no-desaturada";
+    document.getElementById("boton_medicamento2").disabled = false;
+}
+
+function adquirir_medicamento2(){
+    console.log("click medicamento 2");
+    global.info.puntos -= document.getElementById("medicamento2adn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.medicamento2=1;
+    document.getElementById("boton_medicamento2").disabled = true;
+}
+
+if(global.info.medicamento2==1){
+    document.getElementById("medicamento2").className = "circle responsive-img burbuja no-desaturada";
+}
 
 
 //DIV Estadisticas de barras de porcentaje

@@ -66,4 +66,17 @@ global.info.animal1=0;
 global.info.animal2=0;
 
 //Sintomas
+global.info.tos=0;
+global.info.neumonia=0;
+global.info.diarrea=0;
+global.info.globulos=0;
+global.info.insomnio=0;
+global.info.cerebro=0;
+
 //Resistencia
+global.info.frio1=0;
+global.info.frio2=0;
+global.info.calor1=0;
+global.info.calor2=0;
+global.info.medicamento1=0;
+global.info.medicamento2=0;

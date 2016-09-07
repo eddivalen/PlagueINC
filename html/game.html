@@ -174,84 +174,91 @@
 					</div>
 
 				<div class="col s4">
-
+					
 					<div>Sintomas</div>
 
-					
 					<div class="col s6" style="padding:0px">
-					<button class="waves-teal waves-effect botones" id="">
-						 <img id="aire1" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
-					</button>
-					<span style="font-size:12px"><span id="aire1adn">8</span> ADN</span>
-					
-					<button class="waves-teal waves-effect botones" id="">
-						<img id="agua1" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
-					</button>
-					<span style="font-size:12px"><span id="agua1adn">8</span> ADN</span>
 
-					<button class="waves-effect waves-teal botones" id="botones">
-						<img id="animal1" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
+					<button onclick="adquirir_tos()" class="waves-teal waves-effect botones" id="boton_tos" disabled="false">
+						 <img id="tos" title="Tos" src="../images/tos.png" alt=""  class="circle responsive-img burbuja desaturada">
 					</button>
-					<span style="font-size:12px"><span id="animal1adn">7</span> ADN</span>
+					<span style="font-size:12px"><span id="tosadn">8</span> ADN</span>
+					
+					<button onclick="adquirir_diarrea()" class="waves-teal waves-effect botones"  id="boton_diarrea" disabled="false">
+						<img id="diarrea" title="Diarrea" src="../images/diarrea.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="diarreaadn">8</span> ADN</span>
+
+					<button onclick="adquirir_insomnio()" class="waves-effect waves-teal botones"  id="boton_insomnio" disabled="false">
+						<img id="insomnio" title="Insomnio" src="../images/insomnio.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="insomnioadn">7</span> ADN</span>
+					
 					</div>
 
 					<div class="col s6" style="padding:0px">
-					<button class="waves-teal waves-effect botones" id="">
-						 <img id="aire2" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
+					
+					<button onclick="adquirir_neumonia()" class="waves-teal waves-effect botones"  id="boton_neumonia" disabled="false">
+						 <img id="neumonia" title="Neumonía" src="../images/neumonia.png" alt=""  class="circle responsive-img burbuja desaturada">
 					</button>
-					<span style="font-size:12px"><span id="aire2adn">16</span> ADN</span>
+					<span style="font-size:12px"><span id="neumoniaadn">16</span> ADN</span>
 
-					<button class="waves-teal waves-effect botones" id="">
-						<img id="agua2" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
+					<button onclick="adquirir_globulos()" class="waves-teal waves-effect botones"  id="boton_globulos" disabled="false">
+						<img id="globulos" title="Globulos" src="../images/globulos.png" class="circle responsive-img burbuja desaturada" alt="">
 					</button>
-					<span style="font-size:12px"><span id="agua2adn">16</span> ADN</span>
+					<span style="font-size:12px"><span id="globulosadn">16</span> ADN</span>
 
-					<button class="waves-effect waves-teal botones" id="botones">
-						<img id="animal2" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
+					<button onclick="adquirir_cerebro()" class="waves-effect waves-teal botones"  id="boton_cerebro" disabled="false">
+						<img id="cerebro" title="Cerebro" src="../images/cerebro.png" class="circle responsive-img burbuja desaturada" alt="">
 					</button>
-					<span style="font-size:12px"><span id="animal2adn">14</span> ADN</span>
+					<span style="font-size:12px"><span id="cerebroadn">14</span> ADN</span>
 					</div>
-				</div>
+
+					</div>
 
 				<div class="col s4">
-
+					
 					<div>Resistencia</div>
 
-					
 					<div class="col s6" style="padding:0px">
-					<button onclick="adquirir_aire()" class="waves-teal waves-effect botones" id="">
-						 <img id="aire1" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
-					</button>
-					<span style="font-size:12px"><span id="aire1adn">8</span> ADN</span>
-					
-					<button class="waves-teal waves-effect botones" id="">
-						<img id="agua1" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
-					</button>
-					<span style="font-size:12px"><span id="agua1adn">8</span> ADN</span>
 
-					<button class="waves-effect waves-teal botones" id="botones">
-						<img id="animal1" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
+					<button onclick="adquirir_frio1()" class="waves-teal waves-effect botones" id="boton_frio1" disabled="false">
+						 <img id="frio1" title="Frío 1" src="../images/frio.png" alt=""  class="circle responsive-img burbuja desaturada">
 					</button>
-					<span style="font-size:12px"><span id="animal1adn">7</span> ADN</span>
+					<span style="font-size:12px"><span id="frio1adn">8</span> ADN</span>
+					
+					<button onclick="adquirir_calor1()" class="waves-teal waves-effect botones"  id="boton_calor1" disabled="false">
+						<img id="calor1" title="Calor 1" src="../images/calor.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="calor1adn">8</span> ADN</span>
+
+					<button onclick="adquirir_medicamento1()" class="waves-effect waves-teal botones"  id="boton_medicamento1" disabled="false">
+						<img id="medicamento1" title="Medicamento 1" src="../images/medicamento.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="medicamento1adn">7</span> ADN</span>
+					
 					</div>
 
 					<div class="col s6" style="padding:0px">
-					<button class="waves-teal waves-effect botones" id="">
-						 <img id="aire2" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
+					
+					<button onclick="adquirir_frio2()" class="waves-teal waves-effect botones" id="boton_frio2" disabled="false">
+						 <img id="frio2" title="Frío 2" src="../images/frio.png" alt=""  class="circle responsive-img burbuja desaturada">
 					</button>
-					<span style="font-size:12px"><span id="aire2adn">16</span> ADN</span>
+					<span style="font-size:12px"><span id="frio2adn">8</span> ADN</span>
+					
+					<button onclick="adquirir_calor2()" class="waves-teal waves-effect botones"  id="boton_calor2" disabled="false">
+						<img id="calor2" title="Calor 2" src="../images/calor.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="calor2adn">8</span> ADN</span>
 
-					<button class="waves-teal waves-effect botones" id="">
-						<img id="agua2" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
+					<button onclick="adquirir_medicamento2()" class="waves-effect waves-teal botones"  id="boton_medicamento2" disabled="false">
+						<img id="medicamento2" title="Medicamento 2" src="../images/medicamento.png" class="circle responsive-img burbuja desaturada" alt="">
 					</button>
-					<span style="font-size:12px"><span id="agua2adn">16</span> ADN</span>
+					<span style="font-size:12px"><span id="medicamento2adn">7</span> ADN</span>
 
-					<button class="waves-effect waves-teal botones" id="botones">
-						<img id="animal2" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
-					</button>
-					<span style="font-size:12px"><span id="animal2adn">14</span> ADN</span>
 					</div>
-				</div>
+
+					</div>
 
 		</div>
 
