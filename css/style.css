@@ -4,7 +4,7 @@ background: #fff;
  }
  .col.grid-example {
  	width: 100%;
- 	/*height: 126px;*/
+ 	height: 212px;
     border: 1px solid #eee;
     margin: 7px 0;
     text-align: center;
@@ -90,4 +90,26 @@ th, td {
 .dias{
 	margin-bottom:0px;
 	margin-top:10px;
+}
+
+.botones{
+	height:30px;  
+	background-color: #717187; 
+	border:0px
+}
+
+.desaturada{ 
+	filter: grayscale(100%); 
+	-webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+}
+
+.no-desaturada{ 
+	filter: grayscale(0%); 
+	-webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
 }

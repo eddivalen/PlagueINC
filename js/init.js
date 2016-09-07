@@ -55,3 +55,15 @@ function get_poblacioninicial(){
     return poblacioninicial;
 }
 global.info.poblacioninicial=get_poblacioninicial();
+
+//banderas de habilidades del virus
+//Transmisión
+global.info.aire1=0;
+global.info.aire2=0;
+global.info.agua1=0;
+global.info.agua2=0;
+global.info.animal1=0;
+global.info.animal2=0;
+
+//Sintomas
+//Resistencia

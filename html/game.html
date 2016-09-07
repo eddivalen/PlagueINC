@@ -89,7 +89,7 @@
 
 		<div class="row stat">
 			<div class="col s5">
-			Poblacion
+			Población
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
@@ -125,16 +125,189 @@
   				<div id="mttotal"></div>
 			</div>
 		</div>
+ 
+        </div>
+
+		<div class="col s12 m4 grid-example">
+
+				<div class="col s4">
+					
+					<div>Transmisión</div>
+
+					<div class="col s6" style="padding:0px">
+
+					<button onclick="adquirir_aire1()" class="waves-teal waves-effect botones" id="boton_aire1" disabled="false">
+						 <img id="aire1" title="Aire 1" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
+					</button>
+					<span style="font-size:12px"><span id="aire1adn">8</span> ADN</span>
+					
+					<button onclick="adquirir_agua1()" class="waves-teal waves-effect botones"  id="boton_agua1" disabled="false">
+						<img id="agua1" title="Agua 1" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="agua1adn">8</span> ADN</span>
+
+					<button onclick="adquirir_animal1()" class="waves-effect waves-teal botones"  id="boton_animal1" disabled="false">
+						<img id="animal1" title="Animal 1" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="animal1adn">7</span> ADN</span>
+					
+					</div>
+
+					<div class="col s6" style="padding:0px">
+					
+					<button onclick="adquirir_aire2()" class="waves-teal waves-effect botones"  id="boton_aire2" disabled="false">
+						 <img id="aire2" title="Aire 2" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
+					</button>
+					<span style="font-size:12px"><span id="aire2adn">16</span> ADN</span>
+
+					<button onclick="adquirir_agua2()" class="waves-teal waves-effect botones"  id="boton_agua2" disabled="false">
+						<img id="agua2" title="Agua 2" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="agua2adn">16</span> ADN</span>
+
+					<button onclick="adquirir_animal2()" class="waves-effect waves-teal botones"  id="boton_animal2" disabled="false">
+						<img id="animal2" title="Animal 2" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="animal2adn">14</span> ADN</span>
+					</div>
+
+					</div>
+
+				<div class="col s4">
+
+					<div>Sintomas</div>
+
+					
+					<div class="col s6" style="padding:0px">
+					<button class="waves-teal waves-effect botones" id="">
+						 <img id="aire1" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
+					</button>
+					<span style="font-size:12px"><span id="aire1adn">8</span> ADN</span>
+					
+					<button class="waves-teal waves-effect botones" id="">
+						<img id="agua1" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="agua1adn">8</span> ADN</span>
+
+					<button class="waves-effect waves-teal botones" id="botones">
+						<img id="animal1" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="animal1adn">7</span> ADN</span>
+					</div>
+
+					<div class="col s6" style="padding:0px">
+					<button class="waves-teal waves-effect botones" id="">
+						 <img id="aire2" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
+					</button>
+					<span style="font-size:12px"><span id="aire2adn">16</span> ADN</span>
+
+					<button class="waves-teal waves-effect botones" id="">
+						<img id="agua2" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="agua2adn">16</span> ADN</span>
+
+					<button class="waves-effect waves-teal botones" id="botones">
+						<img id="animal2" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="animal2adn">14</span> ADN</span>
+					</div>
+				</div>
+
+				<div class="col s4">
+
+					<div>Resistencia</div>
+
+					
+					<div class="col s6" style="padding:0px">
+					<button onclick="adquirir_aire()" class="waves-teal waves-effect botones" id="">
+						 <img id="aire1" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
+					</button>
+					<span style="font-size:12px"><span id="aire1adn">8</span> ADN</span>
+					
+					<button class="waves-teal waves-effect botones" id="">
+						<img id="agua1" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="agua1adn">8</span> ADN</span>
+
+					<button class="waves-effect waves-teal botones" id="botones">
+						<img id="animal1" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="animal1adn">7</span> ADN</span>
+					</div>
+
+					<div class="col s6" style="padding:0px">
+					<button class="waves-teal waves-effect botones" id="">
+						 <img id="aire2" src="../images/aire.png" alt=""  class="circle responsive-img burbuja desaturada">
+					</button>
+					<span style="font-size:12px"><span id="aire2adn">16</span> ADN</span>
+
+					<button class="waves-teal waves-effect botones" id="">
+						<img id="agua2" src="../images/agua.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="agua2adn">16</span> ADN</span>
+
+					<button class="waves-effect waves-teal botones" id="botones">
+						<img id="animal2" src="../images/animal.png" class="circle responsive-img burbuja desaturada" alt="">
+					</button>
+					<span style="font-size:12px"><span id="animal2adn">14</span> ADN</span>
+					</div>
+				</div>
+
+		</div>
 
 
-		
-		
-		</div>
+
 		<div class="col s12 m4 grid-example">
-		<span class="flow-text">This div is 12-columns wide on all screen sizes</span>
+
+		<div class="row stat">
+			<div class="col s5">
+			Infectividad
+			</div>
+			<div class="col s7">
+				 <div class="progress" style="margin-top:15px">
+      			<div id="infecporcentaje" class="determinate" style="width: 50%;background-color: #FF00FF"></div>
+  				</div>
+  				<div id="infectotal"></div>
+			</div>
 		</div>
-		<div class="col s12 m4 grid-example">
-		<span class="flow-text">This div is 12-columns wide on all screen sizes</span>
+		
+		<div class="row stat">
+			<div class="col s5">
+			Severidad
+			</div>
+			<div class="col s7">
+				 <div class="progress" style="margin-top:15px">
+      			<div id="severporcentaje" class="determinate" style="width: 50%;background-color: #FFFF00"></div>
+  				</div>
+  				<div id="severtotal"></div>
+			</div>
+		</div>
+		
+		<div class="row stat">
+			<div class="col s5">
+			Letalidad
+			</div>
+			<div class="col s7">
+				 <div class="progress" style="margin-top:15px">
+      			<div id="letalporcentaje" class="determinate" style="width: 50%; background-color: #8000FF"></div>
+  				</div>
+  				<div id="letaltotal"></div>
+			</div>
+		</div>
+
+		<div class="row stat">
+			<div class="col s5">
+			Cura
+			</div>
+			<div class="col s7">
+				 <div class="progress" style="margin-top:15px">
+      			<div id="curaporcentaje" class="determinate" style="width: 50%; background-color: #00FF00"></div>
+  				</div>
+  				<div id="porce_cura"></div>
+  				<div id="curatotal"></div>
+			</div>
+		</div>
+
 		</div>
 	
 	</div>
