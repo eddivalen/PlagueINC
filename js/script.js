@@ -255,8 +255,8 @@ function updateGame(){
             global.info.porc_muertes=get_porc_muertes().toFixed();
 
             document.getElementById("pbporcentaje").style.cssText = "width: "+global.info.porc_poblacion+"%;";
-            document.getElementById("ctporcentaje").style.cssText = "width: "+global.info.porc_contagiados+"%;background-color: #FF0000;";
-            document.getElementById("mtporcentaje").style.cssText = "width: "+global.info.porc_muertes+"%;";
+            document.getElementById("ctporcentaje").style.cssText = "width: "+global.info.porc_contagiados+"%; background-color: #FF0000";
+            document.getElementById("mtporcentaje").style.cssText = "width: "+global.info.porc_muertes+"%; background-color: #190707";
                                 //bucle principal del juego
         actualizarTiempo();              // avance de días
         generarADNRandom();     //intenta generar un punto para este día;
@@ -379,9 +379,11 @@ function chequearBotones(){
 
     //aire1
     if(global.info.puntos>=document.getElementById("aire1adn").innerHTML && global.info.aire1==0){
-        document.getElementById("aire1").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("aire1").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_aire1").disabled = false;
-        //document.getElementById('aire1').removeClass('desaturada');
+        }else{
+            document.getElementById("aire1").className = "circle responsive-img burbuja desaturada";
+            document.getElementById("boton_aire1").disabled = true;  
         }
 
     if(global.info.aire1==1){
@@ -390,8 +392,11 @@ function chequearBotones(){
 
     //aire2
     if(global.info.puntos>=document.getElementById("aire2adn").innerHTML && global.info.aire1==1 && global.info.aire2==0){
-        document.getElementById("aire2").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("aire2").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_aire2").disabled = false;
+    }else{
+        document.getElementById("aire2").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_aire2").disabled = true;
     }
     if(global.info.aire2==1){
         document.getElementById("aire2").className = "circle responsive-img burbuja no-desaturada";
@@ -399,8 +404,11 @@ function chequearBotones(){
 
     //agua1
     if(global.info.puntos>=document.getElementById("agua1adn").innerHTML && global.info.agua1==0){
-        document.getElementById("agua1").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("agua1").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_agua1").disabled = false;
+    }else{
+        document.getElementById("agua1").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_agua1").disabled = true;
     }
 
     if(global.info.agua1==1){
@@ -409,8 +417,11 @@ function chequearBotones(){
 
     //agua2
     if(global.info.puntos>=document.getElementById("agua2adn").innerHTML && global.info.agua2==0 && global.info.agua1==1){
-        document.getElementById("agua2").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("agua2").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_agua2").disabled = false;
+    }else{
+        document.getElementById("agua2").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_agua2").disabled = true;
     }
      
     if(global.info.agua2==1){
@@ -419,8 +430,11 @@ function chequearBotones(){
 
     //animal1
     if(global.info.puntos>=document.getElementById("animal1adn").innerHTML && global.info.animal1==0){
-        document.getElementById("animal1").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("animal1").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_animal1").disabled = false;
+    }else{
+        document.getElementById("animal1").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_animal1").disabled = true;
     }
 
     if(global.info.animal1==1){
@@ -429,8 +443,11 @@ function chequearBotones(){
 
     //animal2
     if(global.info.puntos>=document.getElementById("animal2adn").innerHTML && global.info.animal2==0 && global.info.animal1==1){
-        document.getElementById("animal2").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("animal2").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_animal2").disabled = false;
+    }else{
+        document.getElementById("animal2").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_animal2").disabled = true;
     }
 
     if(global.info.animal2==1){
@@ -442,9 +459,11 @@ function chequearBotones(){
 
     //tos
     if(global.info.puntos>=document.getElementById("tosadn").innerHTML && global.info.tos==0){
-        document.getElementById("tos").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("tos").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_tos").disabled = false;
-        //document.getElementById('aire1').removeClass('desaturada');
+        }else {
+            document.getElementById("tos").className = "circle responsive-img burbuja desaturada";
+            document.getElementById("boton_tos").disabled = true;
         }
 
     if(global.info.tos==1){
@@ -453,8 +472,11 @@ function chequearBotones(){
 
     //neumonia
     if(global.info.puntos>=document.getElementById("neumoniaadn").innerHTML && global.info.tos==1 && global.info.neumonia==0){
-        document.getElementById("neumonia").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("neumonia").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_neumonia").disabled = false;
+    }else{
+        document.getElementById("neumonia").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_neumonia").disabled = true;
     }
 
     if(global.info.neumonia==1){
@@ -463,8 +485,11 @@ function chequearBotones(){
 
     //diarrea
     if(global.info.puntos>=document.getElementById("diarreaadn").innerHTML && global.info.diarrea==0){
-    document.getElementById("diarrea").className = "circle responsive-img burbuja no-desaturada";
-    document.getElementById("boton_diarrea").disabled = false;
+        document.getElementById("diarrea").className = "circle responsive-img burbuja medio-desaturada";
+        document.getElementById("boton_diarrea").disabled = false;
+    }else{
+        document.getElementById("diarrea").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_diarrea").disabled = true;
     }
     
 
@@ -474,8 +499,11 @@ function chequearBotones(){
 
         //globulos
     if(global.info.puntos>=document.getElementById("globulosadn").innerHTML && global.info.globulos==0 && global.info.diarrea==1 && global.info.neumonia==1){
-        document.getElementById("globulos").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("globulos").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_globulos").disabled = false;
+    }else{
+        document.getElementById("globulos").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_globulos").disabled = true;
     }
 
     if(global.info.globulos==1){
@@ -484,8 +512,11 @@ function chequearBotones(){
 
     //insomnio
     if(global.info.puntos>=document.getElementById("insomnioadn").innerHTML && global.info.insomnio==0){
-        document.getElementById("insomnio").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("insomnio").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_insomnio").disabled = false;
+    }else{
+        document.getElementById("insomnio").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_insomnio").disabled = true;
     }
 
     if(global.info.insomnio==1){
@@ -495,8 +526,11 @@ function chequearBotones(){
 
     //cerebro
     if(global.info.puntos>=document.getElementById("cerebroadn").innerHTML && global.info.cerebro==0 && global.info.insomnio==1 && global.info.globulos==1){
-        document.getElementById("cerebro").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("cerebro").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_cerebro").disabled = false;
+    }else{
+        document.getElementById("cerebro").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_cerebro").disabled = true;
     }
 
     if(global.info.cerebro==1){
@@ -508,9 +542,11 @@ function chequearBotones(){
 
     //frio1
     if(global.info.puntos>=document.getElementById("frio1adn").innerHTML && global.info.frio1==0){
-        document.getElementById("frio1").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("frio1").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_frio1").disabled = false;
-        //document.getElementById('aire1').removeClass('desaturada');
+        }else{
+            document.getElementById("frio1").className = "circle responsive-img burbuja desaturada";
+            document.getElementById("boton_frio1").disabled = true;
         }
 
 
@@ -520,8 +556,11 @@ function chequearBotones(){
 
     //frio2
     if(global.info.puntos>=document.getElementById("frio2adn").innerHTML && global.info.frio1==1 && global.info.frio2==0){
-        document.getElementById("frio2").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("frio2").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_frio2").disabled = false;
+    }else{
+        document.getElementById("frio2").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_frio2").disabled = true;
     }
 
     if(global.info.frio2==1){
@@ -531,8 +570,11 @@ function chequearBotones(){
 
     //calor1
     if(global.info.puntos>=document.getElementById("calor1adn").innerHTML && global.info.calor1==0){
-        document.getElementById("calor1").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("calor1").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_calor1").disabled = false;
+    }else{
+        document.getElementById("calor1").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_calor1").disabled = true;
     }
         
     
@@ -544,12 +586,12 @@ function chequearBotones(){
 
     //calor2
     if(global.info.puntos>=document.getElementById("calor2adn").innerHTML && global.info.calor2==0 && global.info.calor1==1){
-        document.getElementById("calor2").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("calor2").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_calor2").disabled = false;
+    }else{
+        document.getElementById("calor2").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_calor2").disabled = true;
     }
-     
-   
-
 
     if(global.info.calor2==1){
         document.getElementById("calor2").className = "circle responsive-img burbuja no-desaturada";
@@ -557,20 +599,26 @@ function chequearBotones(){
 
     //medicamento1
     if(global.info.puntos>=document.getElementById("medicamento1adn").innerHTML && global.info.medicamento1==0){
-        document.getElementById("medicamento1").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("medicamento1").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_medicamento1").disabled = false;
+    }else{
+        document.getElementById("medicamento1").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_medicamento1").disabled = true;
     }
-
     
 
     if(global.info.medicamento1==1){
         document.getElementById("medicamento1").className = "circle responsive-img burbuja no-desaturada";
     }
 
+
     //medicamento2
     if(global.info.puntos>=document.getElementById("medicamento2adn").innerHTML && global.info.medicamento2==0 && global.info.medicamento1==1){
-        document.getElementById("medicamento2").className = "circle responsive-img burbuja no-desaturada";
+        document.getElementById("medicamento2").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_medicamento2").disabled = false;
+    }else{
+        document.getElementById("medicamento2").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_medicamento2").disabled = true;
     }
 
     

@@ -112,6 +112,13 @@ th{
     -o-filter: grayscale(100%);
 }
 
+.medio-desaturada{
+	filter: grayscale(70%); 
+	-webkit-filter: grayscale(70%);
+    -moz-filter: grayscale(70%);
+    -ms-filter: grayscale(70%);
+    -o-filter: grayscale(70%);
+}
 .no-desaturada{ 
 	filter: grayscale(0%); 
 	-webkit-filter: grayscale(0%);
