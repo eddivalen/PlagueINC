@@ -17,7 +17,7 @@
 	
 	<div class="row margin-mapa" style="">
 	  <div class="col s12 m7">
-		  <div id="world-map" style="width: 561px; height: 400px"></div>
+		  <div id="world-map" style="width: 551px; height: 400px"></div>
 		  <div class="col s12 bubble">
 			  <div class="row ">
 				<div class="col s3">
@@ -64,22 +64,7 @@
 		</div>
 	  </div>
 	  <div class="col s12 m5 vertical-scroll">
-	  <div class="row ttabla">
-		  	 <div class="col s3">
-	          <h6>Estados</h6>
-	        </div>
-	         <div class="col s3">
-	          <h6>Poblacion</h6>
-	        </div>
-	         <div class="col s3">
-	          <h6>Contagiados</h6>
-	        </div>
-	         <div class="col s3">
-	          <h6>Muertes</h6>
-	        </div>
-        </div>
         <div id="table">
-        	
         </div>
 	  </div>
 	</div>
@@ -322,12 +307,18 @@
      <script type="text/template" id="tabletemplate"> 
 	    <table> 
 	      <tbody>
+	      	<tr>
+	      	<th>Estado</th>
+	      	<th>Población</th>
+	      	<th>Contagiados</th>
+	      	<th>Muertes</th>
+	      	</tr>
 	        <% _.each(estados, function(estado, key, list) { %> 
 	              <tr> 
 	                  <td> <%= estado.nombre %></td>
-	                  <td> <%= estado.poblacion %></td>
-	                  <td class="c"> <%= estado.contagiados %></td>
-	                  <td class="c"> <%= estado.muertes %></td>
+	                  <td class=""> <%= estado.poblacion %></td>
+	                  <td class=""> <%= estado.contagiados %></td>
+	                  <td class=""> <%= estado.muertes %></td>
 	              </tr>
 	        <% });%>
 	    </tbody > 
