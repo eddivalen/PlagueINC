@@ -17,7 +17,7 @@ $(function(){
     		if(isSelected){
                 global.origen = map.getRegionName(code);
                 infectarEstado(code,'pink');
-                activarBoton_rojo();
+                generarPunto_rojo();
                map.clearSelectedRegions();
                 console.log(global.origen);
                 band=false;
@@ -85,26 +85,31 @@ var getCodebyRegion = function(region){
 
 
 //DIV Puntos ADN
-
-var activarBoton_rojo = function(){
+var generarPunto_rojo = function(){
+    var value = Math.floor((Math.random() * 3) + 1);
+    var point = $('#puntos_red').text();
+    value+=parseInt(point);
+    document.getElementById("puntos_red").innerHTML = value;
     $('#bubble_red').removeClass('disabled');
-    $('#bubble_red').on('click',function( ev ){
-        ev.preventDefault();
-        value= 3;
-        global.info.puntos+= value;
+}
+var activarBoton_rojo = function(){
+        global.info.puntos+=parseInt($('#puntos_red').text());
         document.getElementById("adn").innerHTML = global.info.puntos;
+        document.getElementById("puntos_red").innerHTML = 0;
          $('#bubble_red').addClass('disabled');
-    });
+}
+var generarPunto_naranja = function(){
+    var value = Math.floor((Math.random() * 3) + 1);
+    var point = $('#puntos_orange').text();
+    value+=parseInt(point);
+    document.getElementById("puntos_orange").innerHTML = value;
+    $('#bubble_orange').removeClass('disabled');
 }
 var activarBoton_naranja = function(){
-      $('#bubble_orange').removeClass('disabled');
-    $('#bubble_orange').on('click',function( ev ){
-        ev.preventDefault();
-        var value= 3;
-        global.info.puntos+= value;
+        global.info.puntos+=parseInt($('#puntos_orange').text());
         document.getElementById("adn").innerHTML = global.info.puntos;
+         document.getElementById("puntos_orange").innerHTML = 0;
          $('#bubble_orange').addClass('disabled');
-    });
 }
 var activarBoton_azul = function(){
     $('#bubble_blue').removeClass('disabled');
@@ -348,7 +353,7 @@ function contagiarOtrosPaises(){
                         global.info.estados[j].contagiados++;
                         console.log(global.info.estados[j].nombre + 'Infectado');
                         infectarEstado(global.info.estados[j].code);
-                        activarBoton_rojo();
+                        generarPunto_rojo();
                     }    
                 }
             }
