@@ -483,6 +483,19 @@ function chequearBotones(){
         document.getElementById("neumonia").className = "circle responsive-img burbuja no-desaturada";
     }
 
+    //fibrosis
+    if(global.info.puntos>=document.getElementById("fibrosisadn").innerHTML && global.info.fibrosis==0 && global.info.neumonia==1){
+        document.getElementById("fibrosis").className = "circle responsive-img burbuja medio-desaturada";
+        document.getElementById("boton_fibrosis").disabled = false;
+    }else{
+        document.getElementById("fibrosis").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_fibrosis").disabled = true;
+    }
+
+    if(global.info.fibrosis==1){
+        document.getElementById("fibrosis").className = "circle responsive-img burbuja no-desaturada";
+    }
+
     //diarrea
     if(global.info.puntos>=document.getElementById("diarreaadn").innerHTML && global.info.diarrea==0){
         document.getElementById("diarrea").className = "circle responsive-img burbuja medio-desaturada";
@@ -497,17 +510,30 @@ function chequearBotones(){
     document.getElementById("diarrea").className = "circle responsive-img burbuja no-desaturada";
     }
 
-        //globulos
-    if(global.info.puntos>=document.getElementById("globulosadn").innerHTML && global.info.globulos==0 && global.info.diarrea==1 && global.info.neumonia==1){
-        document.getElementById("globulos").className = "circle responsive-img burbuja medio-desaturada";
-        document.getElementById("boton_globulos").disabled = false;
+        //anemia
+    if(global.info.puntos>=document.getElementById("anemiaadn").innerHTML && global.info.anemia==0 && global.info.diarrea==1 && global.info.tos==1){
+        document.getElementById("anemia").className = "circle responsive-img burbuja medio-desaturada";
+        document.getElementById("boton_anemia").disabled = false;
     }else{
-        document.getElementById("globulos").className = "circle responsive-img burbuja desaturada";
-        document.getElementById("boton_globulos").disabled = true;
+        document.getElementById("anemia").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_anemia").disabled = true;
     }
 
-    if(global.info.globulos==1){
-        document.getElementById("globulos").className = "circle responsive-img burbuja no-desaturada";
+    if(global.info.anemia==1){
+        document.getElementById("anemia").className = "circle responsive-img burbuja no-desaturada";
+    }
+
+     //hemorragia
+    if(global.info.puntos>=document.getElementById("hemorragiaadn").innerHTML && global.info.hemorragia==0 && global.info.anemia==1){
+        document.getElementById("hemorragia").className = "circle responsive-img burbuja medio-desaturada";
+        document.getElementById("boton_hemorragia").disabled = false;
+    }else{
+        document.getElementById("hemorragia").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_hemorragia").disabled = true;
+    }
+
+    if(global.info.hemorragia==1){
+        document.getElementById("hemorragia").className = "circle responsive-img burbuja no-desaturada";
     }
 
     //insomnio
@@ -524,8 +550,22 @@ function chequearBotones(){
     }
 
 
+    //locura
+    if(global.info.puntos>=document.getElementById("locuraadn").innerHTML && global.info.locura==0 && global.info.insomnio==1){
+        document.getElementById("locura").className = "circle responsive-img burbuja medio-desaturada";
+        document.getElementById("boton_locura").disabled = false;
+    }else{
+        document.getElementById("locura").className = "circle responsive-img burbuja desaturada";
+        document.getElementById("boton_locura").disabled = true;
+    }
+
+    if(global.info.locura==1){
+        document.getElementById("locura").className = "circle responsive-img burbuja no-desaturada";
+    }
+
+
     //cerebro
-    if(global.info.puntos>=document.getElementById("cerebroadn").innerHTML && global.info.cerebro==0 && global.info.insomnio==1 && global.info.globulos==1){
+    if(global.info.puntos>=document.getElementById("cerebroadn").innerHTML && global.info.cerebro==0 && global.info.locura==1 && global.info.anemia==1){
         document.getElementById("cerebro").className = "circle responsive-img burbuja medio-desaturada";
         document.getElementById("boton_cerebro").disabled = false;
     }else{
@@ -536,6 +576,9 @@ function chequearBotones(){
     if(global.info.cerebro==1){
         document.getElementById("cerebro").className = "circle responsive-img burbuja no-desaturada";
     }
+
+  
+
 
     //Resistencia
 
@@ -713,6 +756,17 @@ function adquirir_neumonia(){
     document.getElementById("boton_neumonia").disabled = true;
 }
 
+//fibrosis
+
+function adquirir_fibrosis(){
+    console.log("click fibrosis");
+    global.info.puntos -= document.getElementById("fibrosisadn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.fibrosis=1;
+    document.getElementById("boton_fibrosis").disabled = true;
+}
+
+
 //diarrea
     
 function adquirir_diarrea(){
@@ -723,14 +777,24 @@ function adquirir_diarrea(){
     document.getElementById("boton_diarrea").disabled = true;
 }
 
-//globulos
+//anemia
 
-function adquirir_globulos(){
-    console.log("click globulos");
-    global.info.puntos -= document.getElementById("globulosadn").innerHTML;
+function adquirir_anemia(){
+    console.log("click anemia");
+    global.info.puntos -= document.getElementById("anemiaadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
-    global.info.globulos=1;
-    document.getElementById("boton_globulos").disabled = true;
+    global.info.anemia=1;
+    document.getElementById("boton_anemia").disabled = true;
+}
+
+//hemorragia
+
+function adquirir_hemorragia(){
+    console.log("click hemorragia");
+    global.info.puntos -= document.getElementById("hemorragiaadn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.hemorragia=1;
+    document.getElementById("boton_hemorragia").disabled = true;
 }
 
 //insomnio
@@ -744,7 +808,17 @@ function adquirir_insomnio(){
 }
 
 
-//cerebro
+//locura
+
+function adquirir_locura(){
+    console.log("click locura");
+    global.info.puntos -= document.getElementById("locuraadn").innerHTML;
+    document.getElementById("adn").innerHTML = global.info.puntos;
+    global.info.locura=1;
+    document.getElementById("boton_locura").disabled = true;
+}
+
+//cerebr
 
 function adquirir_cerebro(){
     console.log("click cerebro");
@@ -753,6 +827,7 @@ function adquirir_cerebro(){
     global.info.cerebro=1;
     document.getElementById("boton_cerebro").disabled = true;
 }
+
 
 
 

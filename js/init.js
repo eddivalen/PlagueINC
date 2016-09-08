@@ -72,9 +72,12 @@ global.info.animal2=0;
 //Sintomas
 global.info.tos=0;
 global.info.neumonia=0;
+global.info.fibrosis=0;
 global.info.diarrea=0;
-global.info.globulos=0;
+global.info.anemia=0;
+global.info.hemorragia=0;
 global.info.insomnio=0;
+global.info.locura=0;
 global.info.cerebro=0;
 
 //Resistencia

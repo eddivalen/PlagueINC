@@ -99,7 +99,8 @@ th{
 }
 
 .botones{
-	height:30px;  
+	height:30px;
+	width: 40px;  
 	background-color: #717187; 
 	border:0px
 }
@@ -125,4 +126,11 @@ th{
     -moz-filter: grayscale(0%);
     -ms-filter: grayscale(0%);
     -o-filter: grayscale(0%);
+}
+
+.row .col .s3{
+	padding-right: 0px;
+}
+.row .col .s5{
+	padding-left: 25px;
 }
