@@ -680,63 +680,75 @@ function chequearBotones(){
 
 
 function adquirir_aire1(){
+    if(global.info.puntos>=document.getElementById("aire1adn").innerHTML && global.info.aire1==0){
     console.log("click aire 1");
     global.info.puntos -= document.getElementById("aire1adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.aire1=1;
     document.getElementById("boton_aire1").disabled = true;
 }
+}
 
 
 //aire2
 function adquirir_aire2(){
+    if(global.info.puntos>=document.getElementById("aire2adn").innerHTML && global.info.aire1==1 && global.info.aire2==0){
     console.log("click aire 2");
     global.info.puntos -= document.getElementById("aire2adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.aire2=1;
     document.getElementById("boton_aire2").disabled = true;
 }
+}
 
 
 
 //agua1   
 function adquirir_agua1(){
+    if(global.info.puntos>=document.getElementById("agua1adn").innerHTML && global.info.agua1==0){
     console.log("click agua 1");
     global.info.puntos -= document.getElementById("agua1adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.agua1=1;
     document.getElementById("boton_agua1").disabled = true;
 }
+}
 
 //agua2
 
 function adquirir_agua2(){
+    if(global.info.puntos>=document.getElementById("agua2adn").innerHTML && global.info.agua1==1 && global.info.agua2==0){
     console.log("click agua 2");
     global.info.puntos -= document.getElementById("agua2adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.agua2=1;
     document.getElementById("boton_agua2").disabled = true;
 }
+}
 
 
 //animal1
 
 function adquirir_animal1(){
+    if(global.info.puntos>=document.getElementById("animal1adn").innerHTML && global.info.animal1==0){
     console.log("click animal 1");
     global.info.puntos -= document.getElementById("animal1adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.animal1=1;
     document.getElementById("boton_animal1").disabled = true;
 }
+}
 
 //animal2
 
 function adquirir_animal2(){
+    if(global.info.puntos>=document.getElementById("animal2adn").innerHTML && global.info.animal1==1 && global.info.animal2==0){
     console.log("click animal 2");
     global.info.puntos -= document.getElementById("animal2adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.animal2=1;
     document.getElementById("boton_animal2").disabled = true;
+}
 }
 
 //Sintomas
@@ -744,93 +756,110 @@ function adquirir_animal2(){
 
 //tos
 function adquirir_tos(){
+    if(global.info.puntos>=document.getElementById("tosadn").innerHTML && global.info.tos==0){
     console.log("click tos");
     global.info.puntos -= document.getElementById("tosadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.tos=1;
     document.getElementById("boton_tos").disabled = true;
 }
+}
 
 //neumonia
 
 function adquirir_neumonia(){
+    if(global.info.puntos>=document.getElementById("neumoniaadn").innerHTML && global.info.tos==1 && global.info.neumonia==0){
     console.log("click neumonia");
     global.info.puntos -= document.getElementById("neumoniaadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.neumonia=1;
     document.getElementById("boton_neumonia").disabled = true;
 }
+}
 
 //fibrosis
 
 function adquirir_fibrosis(){
+    if(global.info.puntos>=document.getElementById("fibrosisadn").innerHTML && global.info.neumonia==1 && global.info.fibrosis==0){
     console.log("click fibrosis");
     global.info.puntos -= document.getElementById("fibrosisadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.fibrosis=1;
     document.getElementById("boton_fibrosis").disabled = true;
 }
+}
 
 
 //diarrea
     
 function adquirir_diarrea(){
+    if(global.info.puntos>=document.getElementById("diarreaadn").innerHTML && global.info.diarrea==0){
     console.log("click diarrea");
     global.info.puntos -= document.getElementById("diarreaadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.diarrea=1;
     document.getElementById("boton_diarrea").disabled = true;
 }
+}
 
 //anemia
 
 function adquirir_anemia(){
+    if(global.info.puntos>=document.getElementById("anemiaadn").innerHTML && global.info.diarrea==1 && global.info.tos==1 && global.info.anemia==0){
     console.log("click anemia");
     global.info.puntos -= document.getElementById("anemiaadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.anemia=1;
     document.getElementById("boton_anemia").disabled = true;
 }
+}
 
 //hemorragia
 
 function adquirir_hemorragia(){
+    if(global.info.puntos>=document.getElementById("hemorragiaadn").innerHTML && global.info.anemia==1 && global.info.hemorragia==0){
     console.log("click hemorragia");
     global.info.puntos -= document.getElementById("hemorragiaadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.hemorragia=1;
     document.getElementById("boton_hemorragia").disabled = true;
 }
+}
 
 //insomnio
 
 function adquirir_insomnio(){
+    if(global.info.puntos>=document.getElementById("insomnioadn").innerHTML && global.info.insomnio==0){
     console.log("click insomnio");
     global.info.puntos -= document.getElementById("insomnioadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.insomnio=1;
     document.getElementById("boton_insomnio").disabled = true;
 }
-
+}
 
 //locura
 
 function adquirir_locura(){
+    if(global.info.puntos>=document.getElementById("locuraadn").innerHTML && global.info.insomnio==1 && global.info.locura==0){
     console.log("click locura");
     global.info.puntos -= document.getElementById("locuraadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.locura=1;
     document.getElementById("boton_locura").disabled = true;
 }
+}
 
-//cerebr
+//cerebro
 
 function adquirir_cerebro(){
+    if(global.info.puntos>=document.getElementById("cerebroadn").innerHTML && global.info.locura==1 && global.info.anemia==1 && global.info.cerebro==0){
     console.log("click cerebro");
     global.info.puntos -= document.getElementById("cerebroadn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.cerebro=1;
     document.getElementById("boton_cerebro").disabled = true;
+}
 }
 
 
@@ -844,11 +873,13 @@ function adquirir_cerebro(){
 
 
 function adquirir_frio1(){
+    if(global.info.puntos>=document.getElementById("frio1adn").innerHTML && global.info.frio1==0){
     console.log("click frio 1");
     global.info.puntos -= document.getElementById("frio1adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.frio1=1;
     document.getElementById("boton_frio1").disabled = true;
+}
 }
 
 
@@ -857,11 +888,13 @@ function adquirir_frio1(){
 
 
 function adquirir_frio2(){
+    if(global.info.puntos>=document.getElementById("frio2adn").innerHTML && global.info.frio2==0 && global.info.frio1==1){
     console.log("click frio 2");
     global.info.puntos -= document.getElementById("frio2adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.frio2=1;
     document.getElementById("boton_frio2").disabled = true;
+}
 }
 
 
@@ -871,11 +904,13 @@ function adquirir_frio2(){
 
     
 function adquirir_calor1(){
+    if(global.info.puntos>=document.getElementById("calor1adn").innerHTML && global.info.calor1==0){
     console.log("click calor 1");
     global.info.puntos -= document.getElementById("calor1adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.calor1=1;
     document.getElementById("boton_calor1").disabled = true;
+}
 }
 
 
@@ -885,11 +920,13 @@ function adquirir_calor1(){
 
  
 function adquirir_calor2(){
+    if(global.info.puntos>=document.getElementById("calor2adn").innerHTML && global.info.calor2==0 && global.info.calor1==1){
     console.log("click calor 2");
     global.info.puntos -= document.getElementById("calor2adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.calor2=1;
     document.getElementById("boton_calor2").disabled = true;
+}
 }
 
 
@@ -898,11 +935,13 @@ function adquirir_calor2(){
 //medicamento1
 
 function adquirir_medicamento1(){
+    if(global.info.puntos>=document.getElementById("medicamento1adn").innerHTML && global.info.medicamento1==0){
     console.log("click medicamento 1");
     global.info.puntos -= document.getElementById("medicamento1adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.medicamento1=1;
     document.getElementById("boton_medicamento1").disabled = true;
+}
 }
 
 
@@ -911,13 +950,13 @@ function adquirir_medicamento1(){
 
 
 function adquirir_medicamento2(){
+    if(global.info.puntos>=document.getElementById("medicamento2adn").innerHTML && global.info.medicamento2==0 && global.info.medicamento1==1){
     console.log("click medicamento 2");
     global.info.puntos -= document.getElementById("medicamento2adn").innerHTML;
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.medicamento2=1;
     document.getElementById("boton_medicamento2").disabled = true;
 }
-
-
+}
 
 setInterval(updateGame, 100);
