@@ -6,7 +6,7 @@
     "title":"Plague INC",
     "width": 500,
     "height": 410,
-    "toolbar": true,
+    "toolbar": false,
     "icon": "/images/logo.png"
   },
   "dependencies": {

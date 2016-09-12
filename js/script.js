@@ -2,7 +2,8 @@ var band = true;
 var template = tabletemplate.innerHTML;
 table.innerHTML = _.template(template,{estados:global.info.estados});
 var map;
-
+var m=false;
+var time;
 $(function(){
 	map = new jvm.Map({
         container: $('#world-map'),
@@ -98,7 +99,9 @@ var activarBoton_rojo = function(){
         document.getElementById("puntos_red").innerHTML = 0;
          $('#bubble_red').addClass('disabled');
 }
+
 var generarPunto_naranja = function(){
+    //global.info.boton_naranja=1;
     var value = Math.floor((Math.random() * 3) + 1);
     var point = $('#puntos_orange').text();
     value+=parseInt(point);
@@ -110,20 +113,88 @@ var activarBoton_naranja = function(){
         document.getElementById("adn").innerHTML = global.info.puntos;
          document.getElementById("puntos_orange").innerHTML = 0;
          $('#bubble_orange').addClass('disabled');
+         //global.info.boton_naranja=0;
+}
+var generarBoton_azul = function(){
+    $('#bubble_blue').removeClass('disabled');
 }
 var activarBoton_azul = function(){
-    $('#bubble_blue').removeClass('disabled');
-     $('#bubble_blue').on('click',function( ev ){
-        ev.preventDefault();
-        //Retrasar tasa de cura
-    });
+    global.info.tasa_d_cura-=0.000001;
+    $('#bubble_blue').addClass('disabled');
+}
+global.info.boton_naranja=0;
+global.info.boton_azul=0;
+var entro=0;
+var entro_azul=0;
+
+var randomDias = function(){
+    if(global.info.boton_naranja==1){
+        var dia = Math.floor((Math.random() * 30) + 1);
+        var dia_ini = global.info.dias;
+        var dia_f = dia + dia_ini;
+        global.info.boton_naranja=0;
+        return dia_f;
+    }
+    return 0;
+}
+var randomDias_azul = function(){
+    if(global.info.boton_azul==1){
+        var dia = Math.floor((Math.random() * 30) + 1);
+        var dia_ini = global.info.dias;
+        var dia_f = dia + dia_ini;
+        global.info.boton_azul=0;
+        return dia_f;
+    }
+    return 0;
 }
 
-//$('#bubble_orange').removeClass('disabled');
-//$('#bubble_orange').addClass('disabled');
+var naranja = function(){
+    
+    if(global.info.boton_naranja==0){ 
+        if(entro==0){
+            global.info.boton_naranja=1;
+            global.info.d = randomDias();
+            console.log(global.info.d);
+            entro=1;
+        }else{
+            if(global.info.d==global.info.dias){
+                generarPunto_naranja(); 
+                entro=0;     
+            }
+        }
+    }
+}
+var azul = function(){
+    if(global.info.cura_inicia ==1){
+        if(global.info.boton_azul==0){  
+            if(entro_azul==0){
+            global.info.boton_azul=1;
+            global.info.d = randomDias_azul();
+            console.log(global.info.d);
+            entro_azul=1;
+            }else{
+            if(global.info.d==global.info.dias){
+                generarBoton_azul(); 
+                entro_azul=0;     
+            }
+        }
+    }
+    }
+}
 
 adn.innerHTML = global.info.puntos;
 
+var finJuego = function(){
+    if(global.info.num_cura>=100){
+         clearInterval(time);
+        alert('La cura se realizó, has perdido.');
+       
+    }
+    if(get_poblaciontotal()==0 && get_contagiadostotal()==0){
+        clearInterval(time);
+        alert('El virus ha destruido a Venezuela');
+    }
+}
 
 //DIV Estadistica Población
 
@@ -209,8 +280,47 @@ document.getElementById("mtporcentaje").style.cssText = "width: "+global.info.po
 
 //DIV Estadisticas de barras de porcentaje
 
-global.info.porc_cura="100%";
-porce_cura.innerHTML = global.info.porc_cura;
+
+global.info.tasa_contagio = 0.05;
+global.info.num_tasa_contagio=1;
+global.info.tasac_1 = 0.005;
+global.info.tasac_2 = 0.007;
+
+function get_porc_infectividad(){
+
+    var porc_infectividad = 0;
+    porc_infectividad=((global.info.num_tasa_contagio/16)*100);
+    return porc_infectividad;
+
+}
+
+global.info.tasa_muerte = 0;
+global.info.num_tasa_muerte=0;
+global.info.tasam_1 = 0.001;
+global.info.tasam_2 = 0.005;
+global.info.tasam_3 = 0.01;
+
+function get_porc_letalidad(){
+
+    var porc_letalidad = 0;
+    porc_letalidad=((global.info.num_tasa_muerte/6)*100);
+    return porc_letalidad;
+
+}
+
+global.info.tasa_d_cura = 0;
+global.info.num_cura = 0;
+global.info.cura_inicia = 0;
+global.info.tasa_a_cura = 0.008;
+global.info.curados = 0;
+
+function get_porc_cura(){
+
+    var porc_cura = 0;
+    porc_cura=((global.info.num_cura/100)*100);
+    return porc_cura;
+
+}
 
 
 
@@ -224,9 +334,6 @@ var probabilidad_puntos;
 global.info.puntos = 0;
 var j = 0;
 var k = 0;
-
-var tasa_base_contagio = 0.05;
-var tasa_base_muerte = 0.001;
 
 function updateGame(){
     
@@ -262,6 +369,18 @@ function updateGame(){
             document.getElementById("pbporcentaje").style.cssText = "width: "+global.info.porc_poblacion+"%;";
             document.getElementById("ctporcentaje").style.cssText = "width: "+global.info.porc_contagiados+"%; background-color: #FF0000";
             document.getElementById("mtporcentaje").style.cssText = "width: "+global.info.porc_muertes+"%; background-color: #190707";
+
+
+            global.info.porc_infectividad=get_porc_infectividad().toFixed();
+            document.getElementById("infecporcentaje").style.cssText = "width: "+global.info.porc_infectividad+"%; background-color: #FF00FF";
+
+            global.info.porc_letalidad=get_porc_letalidad().toFixed();
+            document.getElementById("letalporcentaje").style.cssText = "width: "+global.info.porc_letalidad+"%; background-color: #8000FF";
+
+            global.info.porc_cura=get_porc_cura().toFixed();
+            document.getElementById("curaporcentaje").style.cssText = "width: "+global.info.porc_cura+"%; background-color: #00FF00";
+            porce_cura.innerHTML = global.info.porc_cura+"%";
+
                                 //bucle principal del juego
         actualizarTiempo();              // avance de días
         generarADNRandom();     //intenta generar un punto para este día;
@@ -270,27 +389,86 @@ function updateGame(){
         contagiarOtrosPaises();  //recorre cada pais infectado e intenta contagiar un vecino sano
         chequearBotones();
         actualizarColores();
+        iniciarCura();
+        desarrollarCura();
+        naranja();
+        azul();
+        finJuego();
         }
 
     }
 }
 
+function iniciarCura(){
+
+   if(get_muertestotal()>0 || get_contagiadostotal()>(global.info.poblacioninicial*0.7)){
+
+    if(global.info.cura_inicia==0){
+    
+    global.info.tasa_d_cura+=0.0008;
+    global.info.cura_inicia=1;
+
+    }
+
+    }
+
+
+}
+
+function desarrollarCura(){
+
+    if(global.info.cura_inicia==1 && global.info.num_cura<100 && get_muertestotal()<(global.info.poblacioninicial*0.8)){
+
+    global.info.num_cura += global.info.tasa_d_cura*100;
+
+    }
+ 
+
+}
+
+/*
+function aplicarCura(){
+
+    if(global.info.num_cura>=100){
+
+
+        for(i = 0; i < global.info.estados.length; i++){
+
+        if(global.info.estados[i].infectado === 1 && global.info.estados[i].contagiados > 0){
+
+            factor_cura = global.info.estados[i].contagiados * global.info.tasa_a_cura;
+            global.info.estados[i].cont_r -= factor_cura;
+            global.info.estados[i].poblacion += Math.floor(factor_cura);
+            global.info.estados[i].contagiados = Math.floor(global.info.estados[i].cont_r);
+        }
+        
+        
+
+    }
+
+
+}
+}*/
+
+
+
 function matarContagiados(){
     for(i = 0; i < global.info.estados.length; i++){
 
         if(global.info.estados[i].infectado === 1 && global.info.estados[i].contagiados > 0){
-        muertos = Math.random() * tasa_base_muerte * global.info.estados[i].contagiados;
+        muertos = Math.random() * global.info.tasa_muerte * global.info.estados[i].contagiados;
         
-        if(tasa_base_muerte > 0 && muertos < 1){
+        if(global.info.tasa_muerte > 0 && muertos < 1){
             rand = 100 * Math.random();
             
-            if(rand <= tasa_base_muerte*100){
+            if(rand <= global.info.tasa_muerte*100){
                 muertos = 1;
             }
 
         }
         
         global.info.estados[i].contagiados -= Math.floor(muertos);
+
         global.info.estados[i].muertes += Math.floor(muertos);
     }
     }
@@ -315,7 +493,7 @@ function aumentarInfeccion(){
 
         if(global.info.estados[i].infectado === 1 && global.info.estados[i].poblacion > 0 && global.info.estados[i].contagiados > 0){
 
-            global.info.estados[i].cont_r += global.info.estados[i].contagiados * tasa_base_contagio;
+            global.info.estados[i].cont_r += global.info.estados[i].contagiados * global.info.tasa_contagio;
             contagiados_anterior = global.info.estados[i].contagiados;
             
             
@@ -686,6 +864,9 @@ function adquirir_aire1(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.aire1=1;
     document.getElementById("boton_aire1").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_1;
+    global.info.num_tasa_contagio +=1;
 }
 }
 
@@ -698,6 +879,9 @@ function adquirir_aire2(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.aire2=1;
     document.getElementById("boton_aire2").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_2;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -711,6 +895,9 @@ function adquirir_agua1(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.agua1=1;
     document.getElementById("boton_agua1").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_1;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -723,6 +910,9 @@ function adquirir_agua2(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.agua2=1;
     document.getElementById("boton_agua2").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_2;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -736,6 +926,9 @@ function adquirir_animal1(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.animal1=1;
     document.getElementById("boton_animal1").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_1;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -748,6 +941,9 @@ function adquirir_animal2(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.animal2=1;
     document.getElementById("boton_animal2").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_2;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -762,6 +958,9 @@ function adquirir_tos(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.tos=1;
     document.getElementById("boton_tos").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_1;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -774,6 +973,9 @@ function adquirir_neumonia(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.neumonia=1;
     document.getElementById("boton_neumonia").disabled = true;
+
+    global.info.tasa_muerte += global.info.tasam_1;
+    global.info.num_tasa_muerte+=1;
 }
 }
 
@@ -786,6 +988,9 @@ function adquirir_fibrosis(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.fibrosis=1;
     document.getElementById("boton_fibrosis").disabled = true;
+
+    global.info.tasa_muerte += global.info.tasam_2;
+    global.info.num_tasa_muerte+=1;
 }
 }
 
@@ -799,6 +1004,9 @@ function adquirir_diarrea(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.diarrea=1;
     document.getElementById("boton_diarrea").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_2;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -811,6 +1019,9 @@ function adquirir_anemia(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.anemia=1;
     document.getElementById("boton_anemia").disabled = true;
+
+    global.info.tasa_muerte += global.info.tasam_1;
+    global.info.num_tasa_muerte+=1;
 }
 }
 
@@ -823,6 +1034,9 @@ function adquirir_hemorragia(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.hemorragia=1;
     document.getElementById("boton_hemorragia").disabled = true;
+
+    global.info.tasa_muerte += global.info.tasam_2;
+    global.info.num_tasa_muerte+=1;
 }
 }
 
@@ -835,6 +1049,8 @@ function adquirir_insomnio(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.insomnio=1;
     document.getElementById("boton_insomnio").disabled = true;
+
+    //global.info.tasa_contagio += 0.002;
 }
 }
 
@@ -847,6 +1063,8 @@ function adquirir_locura(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.locura=1;
     document.getElementById("boton_locura").disabled = true;
+
+    //global.info.tasa_contagio += 0.002;
 }
 }
 
@@ -859,6 +1077,9 @@ function adquirir_cerebro(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.cerebro=1;
     document.getElementById("boton_cerebro").disabled = true;
+
+    global.info.tasa_muerte += global.info.tasam_3;
+    global.info.num_tasa_muerte+=1;
 }
 }
 
@@ -879,6 +1100,9 @@ function adquirir_frio1(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.frio1=1;
     document.getElementById("boton_frio1").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_1;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -894,6 +1118,9 @@ function adquirir_frio2(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.frio2=1;
     document.getElementById("boton_frio2").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_2;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -910,6 +1137,9 @@ function adquirir_calor1(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.calor1=1;
     document.getElementById("boton_calor1").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_1;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -926,6 +1156,9 @@ function adquirir_calor2(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.calor2=1;
     document.getElementById("boton_calor2").disabled = true;
+
+    global.info.tasa_contagio += global.info.tasac_2;
+    global.info.num_tasa_contagio+=1;
 }
 }
 
@@ -941,6 +1174,8 @@ function adquirir_medicamento1(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.medicamento1=1;
     document.getElementById("boton_medicamento1").disabled = true;
+
+    //global.info.tasa_contagio += 0.002;
 }
 }
 
@@ -956,7 +1191,9 @@ function adquirir_medicamento2(){
     document.getElementById("adn").innerHTML = global.info.puntos;
     global.info.medicamento2=1;
     document.getElementById("boton_medicamento2").disabled = true;
+
+    //global.info.tasa_contagio += 0.002;
 }
 }
 
-setInterval(updateGame, 100);
+ time =setInterval(updateGame, 50);

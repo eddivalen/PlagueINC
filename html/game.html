@@ -55,9 +55,9 @@
 					<button id="bubble_blue" class="btn-floating btn-large waves-effect waves-light blue center disabled" onclick="activarBoton_azul()">
 						 <img src="../images/cura.png" alt="" class="circle responsive-img burbuja">
 					</button>
-					<div class="puntos">
+					<!--<div class="puntos">
 						<span id="puntos_blue" class="flow-text">0</span>
-					</div>
+					</div>-->
 				</div>
 			   </div>	
 		
@@ -208,17 +208,17 @@
 					<button onclick="adquirir_fibrosis()" class="waves-teal waves-effect botones"  id="boton_fibrosis" disabled="false">
 						 <img id="fibrosis" title="Fibrosis" src="../images/fibrosis.png" alt=""  class="circle responsive-img burbuja desaturada">
 					</button>
-					<span style="font-size:8px"><span style="font-size:12px" id="fibrosisadn">16</span> ADN</span>
+					<span style="font-size:8px"><span style="font-size:12px" id="fibrosisadn">28</span> ADN</span>
 
 					<button onclick="adquirir_hemorragia()" class="waves-teal waves-effect botones"  id="boton_hemorragia" disabled="false">
 						<img id="hemorragia" title="Hemorragia" src="../images/hemorragia.png" class="circle responsive-img burbuja desaturada" alt="">
 					</button>
-					<span style="font-size:8px"><span style="font-size:12px" id="hemorragiaadn">16</span> ADN</span>
+					<span style="font-size:8px"><span style="font-size:12px" id="hemorragiaadn">30</span> ADN</span>
 
 					<button onclick="adquirir_cerebro()" class="waves-effect waves-teal botones"  id="boton_cerebro" disabled="false">
 						<img id="cerebro" title="Cerebro" src="../images/cerebro.png" class="circle responsive-img burbuja desaturada" alt="">
 					</button>
-					<span style="font-size:8px"><span style="font-size:12px" id="cerebroadn">14</span> ADN</span>
+					<span style="font-size:8px"><span style="font-size:12px" id="cerebroadn">32</span> ADN</span>
 					</div>
 
 
@@ -254,17 +254,17 @@
 					<button onclick="adquirir_frio2()" class="waves-teal waves-effect botones" id="boton_frio2" disabled="false">
 						 <img id="frio2" title="Frío 2" src="../images/frio.png" alt=""  class="circle responsive-img burbuja desaturada">
 					</button>
-					<span style="font-size:8px"><span style="font-size:12px" id="frio2adn">8</span> ADN</span>
+					<span style="font-size:8px"><span style="font-size:12px" id="frio2adn">12</span> ADN</span>
 					
 					<button onclick="adquirir_calor2()" class="waves-teal waves-effect botones"  id="boton_calor2" disabled="false">
 						<img id="calor2" title="Calor 2" src="../images/calor.png" class="circle responsive-img burbuja desaturada" alt="">
 					</button>
-					<span style="font-size:8px"><span style="font-size:12px" id="calor2adn">8</span> ADN</span>
+					<span style="font-size:8px"><span style="font-size:12px" id="calor2adn">12</span> ADN</span>
 
 					<button onclick="adquirir_medicamento2()" class="waves-effect waves-teal botones"  id="boton_medicamento2" disabled="false">
 						<img id="medicamento2" title="Medicamento 2" src="../images/medicamento.png" class="circle responsive-img burbuja desaturada" alt="">
 					</button>
-					<span style="font-size:8px"><span style="font-size:12px" id="medicamento2adn">7</span> ADN</span>
+					<span style="font-size:8px"><span style="font-size:12px" id="medicamento2adn">10</span> ADN</span>
 
 					</div>
 
@@ -282,31 +282,20 @@
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
-      			<div id="infecporcentaje" class="determinate" style="width: 50%;background-color: #FF00FF"></div>
+      			<div id="infecporcentaje" class="determinate" style="width: 0%;background-color: #FF00FF"></div>
   				</div>
   				<div id="infectotal"></div>
 			</div>
 		</div>
 		
-		<div class="row stat">
-			<div class="col s5">
-			Severidad
-			</div>
-			<div class="col s7">
-				 <div class="progress" style="margin-top:15px">
-      			<div id="severporcentaje" class="determinate" style="width: 50%;background-color: #FFFF00"></div>
-  				</div>
-  				<div id="severtotal"></div>
-			</div>
-		</div>
-		
+
 		<div class="row stat">
 			<div class="col s5">
 			Letalidad
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
-      			<div id="letalporcentaje" class="determinate" style="width: 50%; background-color: #8000FF"></div>
+      			<div id="letalporcentaje" class="determinate" style="width: 0%; background-color: #8000FF"></div>
   				</div>
   				<div id="letaltotal"></div>
 			</div>
@@ -318,7 +307,7 @@
 			</div>
 			<div class="col s7">
 				 <div class="progress" style="margin-top:15px">
-      			<div id="curaporcentaje" class="determinate" style="width: 50%; background-color: #00FF00"></div>
+      			<div id="curaporcentaje" class="determinate" style="width: 0%; background-color: #00FF00"></div>
   				</div>
   				<div id="porce_cura"></div>
   				<div id="curatotal"></div>
